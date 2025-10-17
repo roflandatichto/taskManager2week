@@ -3,10 +3,10 @@ namespace taskmanager.Repo
 {
     interface ITaskRepository
     {
-        void AddTask(TaskPattern task);
-        TaskPattern? GetTaskById(int ID);
-        IEnumerable<TaskPattern> GetAll();
-        void UpdateTask(int ID, bool IsCompleted);
-        void DeleteTask(int ID);
+        void AddSQLTask(Models.TaskModel task);
+        Models.TaskModel? GetSQLTaskById(int ID);
+        IEnumerable<Models.TaskModel> GetAllSQL();
+        void UpdateSQLTask(int ID, bool IsCompleted);
+        void DeleteSQLTask(int ID);
     }
 }

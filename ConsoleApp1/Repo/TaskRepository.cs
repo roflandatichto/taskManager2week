@@ -6,14 +6,14 @@ namespace taskmanager.Repo
 {
     class TaskRepository : ITaskRepository
     {
-        string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TaskManagerDB;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False;Command Timeout=30";
+        private readonly string connectionString;
 
         public TaskRepository(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
-        public void AddTask(TaskPattern task)
+        public void AddSQLTask(Models.TaskModel task)
         {
             using (var connection = new SqlConnection(connectionString))
             {
@@ -29,7 +29,7 @@ namespace taskmanager.Repo
             }
         }
 
-        public void DeleteTask(int ID)
+        public void DeleteSQLTask(int ID)
         {
             using (var connection = new SqlConnection(connectionString))
             {
@@ -39,26 +39,26 @@ namespace taskmanager.Repo
             }
         }
 
-        public IEnumerable<TaskPattern> GetAll()
+        public IEnumerable<Models.TaskModel> GetAllSQL()
         {
             using (var connection = new SqlConnection(connectionString))
             {
                 string sql = @"SELECT * FROM Tasks ORDER BY Id";
-                return connection.Query<TaskPattern>(sql);
+                return connection.Query<Models.TaskModel>(sql);
             }
         }
 
-        public TaskPattern? GetTaskById(int ID)
+        public Models.TaskModel? GetSQLTaskById(int ID)
         {
             using (var connection = new SqlConnection(connectionString))
             {
                 string sql = @"SELECT * FROM Tasks WHERE Id = @Id";
 
-                return connection.QueryFirstOrDefault<TaskPattern>(sql, new { Id = ID });
+                return connection.QueryFirstOrDefault<Models.TaskModel>(sql, new { Id = ID });
             }
         }
 
-        public void UpdateTask(int ID, bool IsCompleted)
+        public void UpdateSQLTask(int ID, bool IsCompleted)
         {
             using (var connection = new SqlConnection(connectionString))
             {
