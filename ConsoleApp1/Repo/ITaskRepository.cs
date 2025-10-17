@@ -1,12 +1,12 @@
 ﻿using taskmanager.Models;
 namespace taskmanager.Repo
 {
-    interface ITaskRepository
+    public interface ITaskRepository
     {
-        void AddSQLTask(Models.TaskModel task);
-        Models.TaskModel? GetSQLTaskById(int ID);
-        IEnumerable<Models.TaskModel> GetAllSQL();
-        void UpdateSQLTask(int ID, bool IsCompleted);
-        void DeleteSQLTask(int ID);
+        void AddTask(Models.TaskModel task);
+        Models.TaskModel? GetTaskById(int id);
+        IEnumerable<Models.TaskModel> GetAll();
+        void UpdateTask(int id, bool IsCompleted);
+        void DeleteTask(int id);
     }
 }

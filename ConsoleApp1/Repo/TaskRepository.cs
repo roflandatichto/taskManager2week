@@ -13,7 +13,7 @@ namespace taskmanager.Repo
             this.connectionString = connectionString;
         }
 
-        public void AddSQLTask(Models.TaskModel task)
+        public void AddTask(Models.TaskModel task)
         {
             using (var connection = new SqlConnection(connectionString))
             {
@@ -39,7 +39,7 @@ namespace taskmanager.Repo
             }
         }
 
-        public IEnumerable<Models.TaskModel> GetAllSQL()
+        public IEnumerable<Models.TaskModel> GetAll()
         {
             using (var connection = new SqlConnection(connectionString))
             {
@@ -48,7 +48,7 @@ namespace taskmanager.Repo
             }
         }
 
-        public Models.TaskModel? GetSQLTaskById(int ID)
+        public Models.TaskModel? GetTaskById(int ID)
         {
             using (var connection = new SqlConnection(connectionString))
             {

@@ -1,6 +1,6 @@
 ﻿namespace taskmanager.Models
 {
-    class TaskModel
+    public class TaskModel
     {
         public int ID { get; set; }
         public required string Title { get; set; }
