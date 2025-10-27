@@ -29,7 +29,7 @@ namespace taskmanager.Repo
             }
         }
 
-        public void DeleteSQLTask(int ID)
+        public void DeleteTask(int ID)
         {
             using (var connection = new SqlConnection(connectionString))
             {
@@ -58,7 +58,7 @@ namespace taskmanager.Repo
             }
         }
 
-        public void UpdateSQLTask(int ID, bool IsCompleted)
+        public void UpdateTask(int ID, bool IsCompleted)
         {
             using (var connection = new SqlConnection(connectionString))
             {
